@@ -14,3 +14,15 @@
     background-color: #b141f8;
     color: white;
 }
+
+.gridBox:hover {
+    background-color: white;
+    color: #b141f8;
+}
+
+/*          doing this with CSS
+.onHover {
+    background-color: white;
+    color: #b141f8;
+} 
+*/
