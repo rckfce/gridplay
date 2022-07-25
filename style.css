@@ -3,12 +3,19 @@
     padding: 0;
 }
 
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
-    margin: 5px;
+    width: 500px;
+    gap: 1px;
     justify-content: center;
+    border: #4b0082 solid;
 }
 
 .btn {
@@ -19,10 +26,6 @@
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
-}
-
-.gridBox {
-    background-color: #b141f8;
 }
 
 .red {

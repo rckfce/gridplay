@@ -1,10 +1,12 @@
 const containerDiv = document.getElementById("grid");
-const viewPointWidth = document.documentElement.clientWidth;
-let randomColor = "";
+
+const viewPointWidth = 500;
+let hoverCheck = 100;
+let randomColor = "pink";
 
 let gridSize = 16;
-let viewNoGaps = viewPointWidth - (gridSize + 1) * 5 - 10;
-let gridBoxSize = (viewNoGaps / gridSize).toFixed(0) - 1;
+let viewNoGaps = viewPointWidth - gridSize - 1;
+let gridBoxSize = viewNoGaps / gridSize;
 
 const btn = document.querySelector('#btn');
 btn.addEventListener('click', () => {
@@ -14,8 +16,8 @@ btn.addEventListener('click', () => {
     while (oldGrid.firstChild) {
         oldGrid.removeChild(oldGrid.firstChild);
     }
-    viewNoGaps = viewPointWidth - (gridSize + 1) * 5 - 10;
-    gridBoxSize = (viewNoGaps / gridSize).toFixed(0) - 1;
+    viewNoGaps = viewPointWidth - gridSize - 1;
+    gridBoxSize = viewNoGaps / gridSize;
     drawGrid();
     hover();
 });
@@ -73,7 +75,33 @@ function hover() {
     const box = document.querySelectorAll(".gridBox");
     box.forEach ((each) => {
         rgb();
-        each.addEventListener("mouseover", event => {rgb(); each.classList.add(randomColor);});
-        each.addEventListener("mouseout", event => each.classList.remove(randomColor));
+        each.addEventListener("mouseover", event => {
+            rgb();            
+            if (!each.classList.contains("darker")) {
+                each.classList.add(randomColor);
+                each.id = "darker100";
+            }
+            each.classList.add("darker");
+            hoverCheck -= 10;
+            console.log(hoverCheck);
+
+            /* for (let j = 10; j > 0; j--) {
+                let idCheck = "darker" + j * 10;  
+                console.log(idCheck);
+                console.log("darker" + hoverCheck);
+                if (idCheck === "darker" + hoverCheck) {
+                    each.id = "darker" + (j - 1) * 10;
+                    hoverCheck -= 10;
+                }
+
+            } */            
+        });
     });
 }
+
+function darker(level) {
+    darker100
+    
+}
+
+/* each.style.filter = "brightness(" + hoverCheck + "%)"; */
