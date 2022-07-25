@@ -8,44 +8,47 @@
     flex-wrap: wrap;
     gap: 5px;
     margin: 5px;
+    justify-content: center;
+}
+
+.btn {
+    font-size: 18px;
+}
+
+.header {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .gridBox {
     background-color: #b141f8;
-    color: white;
 }
 
 .red {
     background-color: #ff0000;
-    color: #b141f8;
 } 
 
 .orange {
     background-color: #ffa500;
-    color: #b141f8;
 } 
 
 .yellow {
     background-color: #ffff00;
-    color: #b141f8;
 } 
 
 .green {
     background-color: #008000;
-    color: #b141f8;
 } 
 
 .blue {
     background-color: #0000ff;
-    color: #b141f8;
 } 
 
 .indigo {
     background-color: #4b0082;
-    color: #b141f8;
 } 
 
 .violet {
     background-color: #ee82ee;
-    color: #b141f8;
 } 
