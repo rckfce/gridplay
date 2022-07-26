@@ -33,7 +33,7 @@ body {
 } 
 
 .orange {
-    background-color: #ffa500;
+    background-color: #ff7f00;
 } 
 
 .yellow {
@@ -41,7 +41,7 @@ body {
 } 
 
 .green {
-    background-color: #008000;
+    background-color: #00ff00;
 } 
 
 .blue {
@@ -53,5 +53,45 @@ body {
 } 
 
 .violet {
-    background-color: #ee82ee;
-} 
+    background-color: #9400d3;
+}
+
+#darker90 {
+    filter: brightness(90%);
+}
+
+#darker80 {
+    filter: brightness(80%);
+}
+
+#darker70 {
+    filter: brightness(70%);
+}
+
+#darker60 {
+    filter: brightness(60%);
+}
+
+#darker50 {
+    filter: brightness(50%);
+}
+
+#darker40 {
+    filter: brightness(40%);
+}
+
+#darker30 {
+    filter: brightness(30%);
+}
+
+#darker20 {
+    filter: brightness(20%);
+}
+
+#darker10 {
+    filter: brightness(10%);
+}
+
+#darker0 {
+    filter: brightness(0%);
+}

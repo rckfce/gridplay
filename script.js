@@ -1,7 +1,6 @@
 const containerDiv = document.getElementById("grid");
 
 const viewPointWidth = 500;
-let hoverCheck = 100;
 let randomColor = "pink";
 
 let gridSize = 16;
@@ -82,26 +81,18 @@ function hover() {
                 each.id = "darker100";
             }
             each.classList.add("darker");
-            hoverCheck -= 10;
-            console.log(hoverCheck);
-
-            /* for (let j = 10; j > 0; j--) {
-                let idCheck = "darker" + j * 10;  
-                console.log(idCheck);
-                console.log("darker" + hoverCheck);
-                if (idCheck === "darker" + hoverCheck) {
-                    each.id = "darker" + (j - 1) * 10;
-                    hoverCheck -= 10;
+            /* changes brightness via id */
+            if (!each.style.filter) {
+                let bValue = Number(each.id.slice(-2));     /* brighness value from css */
+                if (bValue === 00) {
+                    bValue = 100;
                 }
-
-            } */            
+                if (bValue === 10) {
+                    each.id = "darker" + bValue;
+                } else {                    
+                    each.id = "darker" + (bValue - 10);
+                }                
+            }
         });
     });
 }
-
-function darker(level) {
-    darker100
-    
-}
-
-/* each.style.filter = "brightness(" + hoverCheck + "%)"; */
