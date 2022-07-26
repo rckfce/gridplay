@@ -1,12 +1,12 @@
 const containerDiv = document.getElementById("grid");
-
+ 
 const viewPointWidth = 500;
-let randomColor = "pink";
 
 let gridSize = 16;
 let viewNoGaps = viewPointWidth - gridSize - 1;
 let gridBoxSize = viewNoGaps / gridSize;
 
+/* drawing new grid after button press */
 const btn = document.querySelector('#btn');
 btn.addEventListener('click', () => {
     gridSize = Number(prompt("Enter grid size", "16"));
@@ -26,7 +26,7 @@ for (let i = 1; i <= 16 * 16; i++) {
     newDiv.classList.add("gridBox");
     newDiv.style.height = gridBoxSize + "px";
     newDiv.style.width = gridBoxSize + "px";
-    newDiv.style.backgroundColor
+    /* newDiv.style.backgroundColor */
     containerDiv.appendChild(newDiv);
 }
 
@@ -38,61 +38,38 @@ function drawGrid() {
         newDiv.classList.add("gridBox");
         newDiv.style.height = gridBoxSize + "px";
         newDiv.style.width = gridBoxSize + "px";
-        newDiv.style.backgroundColor
+        /* newDiv.style.backgroundColor */
         containerDiv.appendChild(newDiv);
     }
 }
 
 function rgb() {
-    const random = Math.floor(Math.random() * 8);
-    switch (random) {
-        case 0:
-            randomColor = "red";
-            break;
-        case 1:
-            randomColor = "orange";
-            break;
-        case 3:
-            randomColor = "yellow";
-            break;
-        case 4:
-            randomColor = "green";
-            break;
-        case 5:
-            randomColor = "blue";
-            break;
-        case 6:
-            randomColor = "indigo";
-            break;
-        case 7:
-            randomColor = "violet";
-            break;
-    }
+    const random = Math.floor(Math.random() * 255);
+    return random;    
+}
+
+function getRandomColor() {
+    return "rgb(" + rgb() + ", " + rgb() + ", " + rgb() + ")";
 }
 
 function hover() {
     const box = document.querySelectorAll(".gridBox");
     box.forEach ((each) => {
-        rgb();
         each.addEventListener("mouseover", event => {
-            rgb();            
-            if (!each.classList.contains("darker")) {
-                each.classList.add(randomColor);
-                each.id = "darker100";
+            if (!each.classList.contains("rgbCheck")) {
+                each.style.backgroundColor = getRandomColor();
             }
-            each.classList.add("darker");
-            /* changes brightness via id */
+            each.classList.add("rgbCheck");
+            
+            /* changes brightness */
             if (!each.style.filter) {
-                let bValue = Number(each.id.slice(-2));     /* brighness value from css */
-                if (bValue === 00) {
-                    bValue = 100;
-                }
-                if (bValue === 10) {
-                    each.id = "darker" + bValue;
-                } else {                    
-                    each.id = "darker" + (bValue - 10);
-                }                
+                each.style.filter = "brightness(1)";                                
             }
+            let bValue = Number(each.style.filter.slice(11).slice(0, 3)) - 0.1; /* get brightness value */
+            if (each.style.filter === "brightness(1)") {
+                bValue = 0.9;
+            }
+            each.style.filter = "brightness(" + bValue + ")";
         });
     });
 }
